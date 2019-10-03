@@ -11,6 +11,8 @@ public class Main {
         try {
             final int PORT = 8000;
             DatagramSocket ds = new DatagramSocket();
+
+            //傳送位置
             InetAddress addr = InetAddress.getByName("10.2.8.162");
             String s;
             do {
@@ -21,6 +23,7 @@ public class Main {
                 DatagramPacket dp = new DatagramPacket(s.getBytes(),s.length(),addr,PORT);
                 ds.send(dp);
             }while (!s.equals(" "));
+            //關閉
             ds.close();
         }catch (Exception e){}
     }
